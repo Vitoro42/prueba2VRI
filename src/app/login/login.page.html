@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" color="dark">
+  <ion-grid>
+    <ion-row >
+      <ion-col>
+        <ion-img src="./../../assets/icon/LogoBienvenidoP2.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h2 style="color: white">Bienvenido</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <form [formGroup]="formulario" (submit)="validacionFormulario()">
+          <ion-item color="dark" lines="none" style="margin-bottom: 15px;">
+            <ion-label position="floating" color="light">Usuario</ion-label>
+            <ion-input formControlName="usuario" labelPlacement="floating" fill="outline" type="text"></ion-input>
+          </ion-item>
+          
+          <ion-item color="dark" lines="none" style="margin-bottom: 15px;">
+            <ion-label position="floating" color="light">Contraseña</ion-label>
+            <ion-input formControlName="contrasenia" labelPlacement="floating" fill="outline" type="password"></ion-input>
+          </ion-item>
+
+          <!-- Recuerdame -->
+          <ion-item color="dark" lines="none">
+            <ion-label color="light">Recuerdame</ion-label>
+            <ion-toggle color="primary"></ion-toggle>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" color="primary" style="margin-top: 15px;">
+            <ion-text *ngIf="!bloqueoCarga">Iniciar sesión</ion-text>
+            <ion-spinner *ngIf="bloqueoCarga" name="circular"></ion-spinner>
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</ion-content>
